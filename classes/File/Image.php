@@ -22,7 +22,7 @@ class File_Image implements File_Adapter
         $image = Image::factory($file['path']);
         
         if ($image->width > $version['width']) {
-            $image->resize($version['width'], $version['height'], Image::INVERSE)->crop($version['width'], $version['height']);
+            $image->resize($version['width'], $version['height'], Image::INVERSE)->crop($version['width'], $version['height'], $version['crop_x'], $version['crop_y']);
         }
         
         $dir =  $this->_config['path'] . '/' . $version_name;
