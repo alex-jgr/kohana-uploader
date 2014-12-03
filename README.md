@@ -6,14 +6,18 @@ kohana-uploader
 <p>In order to have it working at least the following three modules must be enabled in bootstrap file</p>
 
 <pre>
+
     Kohana::modules(array(
 	'auth'       => MODPATH.'auth',       // Basic authentication
 	'image'      => MODPATH.'image',      // Image manipulation
         'Uploader'   => MODPATH . 'uploader'  // <<==== Obviously the module from this repository
     ));
+
 </pre>
 
-<p>A configuration example is located in the config folder. Looks like this</p>
+<p>
+    A configuration example is located in the config folder. Looks like this 
+</p>
 
 <pre>
     return array(
@@ -43,6 +47,7 @@ kohana-uploader
         ),
     )
 </pre>
+
 Usage:
 <pre>
     $uploader_return = Uploader::factory('some-image')->process_upload($_FILES['image']);
