@@ -5,7 +5,7 @@ defined('SYSPATH') or die('No direct script access.');
  */
 return array(
     'some-image' => array(
-        'path'  => DOCROOT . 'public/images/teams',
+        'path'  => DOCROOT . 'public/images/some-images',
         'adapter'  => 'File_Image',
         'extensions' =>  array('jpg', 'jpeg', 'gif'),
         'versions' => array(
@@ -26,7 +26,7 @@ return array(
                 'crop_y'    => NULL
             )
         ),
-        'keep-original' => FALSE
+        'keep-original' => TRUE
     ),
     'user-image' => array(
         'path'  => DOCROOT . 'public/images/users',

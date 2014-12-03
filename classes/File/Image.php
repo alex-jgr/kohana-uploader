@@ -25,13 +25,13 @@ class File_Image implements File_Adapter
             $image->resize($version['width'], $version['height'], Image::INVERSE)->crop($version['width'], $version['height'], $version['crop_x'], $version['crop_y']);
         }
         
-        $dir =  $this->_config['path'] . '/' . $version_name;
+        $dir =  $this->_config['path'] . DIRECTORY_SEPARATOR . $version_name;
         
         if (!is_dir($dir)) {
             mkdir($dir, 0755, TRUE);
         }
         
-        $new_path = $dir . '/' . $file['name'];
+        $new_path = $dir . DIRECTORY_SEPARATOR . $file['name'];
         
         $image->save($new_path, 100);
         
@@ -55,7 +55,7 @@ class File_Image implements File_Adapter
         if ($upload) {
             $filename   = strtolower(Text::random('alnum', 10)) . time() . Auth::instance()->get_user() . '.' . $this->_type; //making sure the file will have a unique name
             $image      = Image::factory($upload);
-            $path       = $this->_config['path'] . $filename;
+            $path       = $this->_config['path'] . DIRECTORY_SEPARATOR .$filename;
             
             $image->save($path, 100);
             

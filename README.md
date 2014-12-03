@@ -7,7 +7,7 @@ kohana-uploader
 <pre>
     return array(
         'some-image' => array(
-            'path'  => DOCROOT . 'public/images/teams',
+            'path'  => DOCROOT . 'public/images/some-images',
             'adapter'  => 'File_Image',
             'extensions' =>  array('jpg', 'jpeg', 'gif'),
             'versions' => array(
@@ -34,7 +34,7 @@ kohana-uploader
 </pre>
 Usage:
 <pre>
-    $uploader = Uploader::factory('some-image')->process_upload($_FILES['image']);
+    $uploader_return = Uploader::factory('some-image')->process_upload($_FILES['image']);
 </pre>
 <p>
     This code will look for the file type 'some-image' in the config file and will create save or create (or both) the new image returning an array which contains information on the resulting image or images.
@@ -45,6 +45,66 @@ Usage:
 <p>
     For each version specified in the 'versions' a new image will be created with the given attributes and placed into a folder composed by the value in the 'path' concatenated with the array key of the version.
 </p>
+
+<p>
+    A var_dump of the $uploader_return would look like this:
+</p>
+<pre>
+
+array(2) {
+    ["original"]=>
+        array(6) {
+            ["name"]=>
+            string(25) "h0ecqrpfxa14175658471.jpg"
+            ["path"]=>
+            string(76) "DOCROOT .public/images/some-images/h0ecqrpfxa14175658471.jpg"
+            ["width"]=>
+            int(800)
+            ["height"]=>
+            int(800)
+            ["created"]=>
+            int(1417565847)
+            ["quality"]=>
+            int(100)
+        }
+    ["versions"]=>
+        array(2) {
+          ["thumb"]=>
+            array(6) {
+                ["name"]=>
+                string(25) "h0ecqrpfxa14175658471.jpg"
+                ["path"]=>
+                string(83) "DOCROOT .public/images/some-images/thumb/h0ecqrpfxa14175658471.jpg"
+                ["width"]=>
+                int(64)
+                ["height"]=>
+                int(64)
+                ["created"]=>
+                int(1417565847)
+                ["quality"]=>
+                int(100)
+            }
+          ["normal"]=>
+            array(6) {
+                ["name"]=>
+                string(25) "h0ecqrpfxa14175658471.jpg"
+                ["path"]=>
+                string(84) "DOCROOT .public/images/some-images/normal/h0ecqrpfxa14175658471.jpg"
+                ["width"]=>
+                int(640)
+                ["height"]=>
+                int(480)
+                ["created"]=>
+                int(1417565847)
+                ["quality"]=>
+                int(100)
+            }
+        }
+}
+
+
+</pre>
+
 <p>
     Define as many image types as you need.
 </p>
