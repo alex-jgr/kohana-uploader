@@ -37,7 +37,7 @@ Usage:
     $uploader_return = Uploader::factory('some-image')->process_upload($_FILES['image']);
 </pre>
 <p>
-    This code will look for the file type 'some-image' in the config file and will create save or create (or both) the new image returning an array which contains information on the resulting image or images.
+    This code will look for the file type 'some-image' in the config file and will save or create (or both) the new image returning an array which contains information on the resulting image or images.
 </p>
 <p>
     If the original image is no longer needed, then set 'keep-original' to FALSE or don't mention it. If it is needed then it will have to be TRUE.
