@@ -1,16 +1,22 @@
 kohana-uploader
 ===============
 
-<p><strong>A Kohana Framework module for handling file uploads. It only works on images at the moment. </strong></p>
+<p>
+    <strong>
+        A Kohana Framework module for handling file uploads. It only works on images at the moment. 
+    </strong>
+</p>
 
-<p>In order to have it working at least the following three modules must be enabled in bootstrap file</p>
+<p>
+    In order to have it working at least the following three modules must be enabled in bootstrap file
+</p>
 
 <pre>
 
     Kohana::modules(array(
 	'auth'       => MODPATH.'auth',       // Basic authentication
 	'image'      => MODPATH.'image',      // Image manipulation
-        'Uploader'   => MODPATH . 'uploader'  // <<==== Obviously the module from this repository
+        'Uploader'   => MODPATH . 'uploader'  // Obviously the module from this repository
     ));
 
 </pre>
