@@ -32,7 +32,6 @@ class File_Image implements File_Adapter
         }
         
         $new_path = $dir . DIRECTORY_SEPARATOR . $file['name'];
-        
         $image->save($new_path, 100);
         
         return array(
@@ -52,12 +51,15 @@ class File_Image implements File_Adapter
         }
         
         $upload = Upload::save($file, NULL, $this->_config['path']);
+
         if ($upload) {
             $filename   = strtolower(Text::random('alnum', 10)) . time() . Auth::instance()->get_user() . '.' . $this->_type; //making sure the file will have a unique name
             $image      = Image::factory($upload);
             $path       = $this->_config['path'] . DIRECTORY_SEPARATOR .$filename;
             
             $image->save($path, 100);
+            
+            unlink($upload);
             
             return array(
                 'name'      => $filename,
